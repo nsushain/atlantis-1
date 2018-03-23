@@ -1,12 +1,12 @@
-package atlantisyaml_test
+package repoconfig_test
 
 import (
 	"testing"
 
 	"github.com/hashicorp/go-version"
 	. "github.com/petergtz/pegomock"
-	"github.com/runatlantis/atlantis/server/events/atlantisyaml"
 	"github.com/runatlantis/atlantis/server/events/mocks/matchers"
+	"github.com/runatlantis/atlantis/server/events/repoconfig"
 	matchers2 "github.com/runatlantis/atlantis/server/events/run/mocks/matchers"
 	"github.com/runatlantis/atlantis/server/events/terraform/mocks"
 	"github.com/runatlantis/atlantis/server/logging"
@@ -43,8 +43,8 @@ func TestRun_UsesGetOrInitForRightVersion(t *testing.T) {
 
 			tfVersion, _ := version.NewVersion(c.version)
 			logger := logging.NewNoopLogger()
-			s := atlantisyaml.InitStep{
-				Meta: atlantisyaml.StepMeta{
+			s := repoconfig.InitStep{
+				Meta: repoconfig.StepMeta{
 					Log:                   logger,
 					Workspace:             "workspace",
 					AbsolutePath:          "/path",
